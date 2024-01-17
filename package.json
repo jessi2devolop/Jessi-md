@@ -1,7 +1,7 @@
 {
     "name": "Jessi-md",
     "version": "4.8.0",
-    "description": "Simple WhatsApp Bot MD With ESM Module",
+    "description": "Simple WhatsApp Bot MD With Jessi2Devolop Team",
     "main": "index.js",
     "type": "module",
     "directories": {
@@ -23,7 +23,6 @@
         "wa-md",
         "js-whatsapp",
         "whatsapp-js",
-        "lua-Bot",
         "whatsapp",
         "Games-wabot",
         "wabot-aq",
@@ -33,7 +32,7 @@
     ],
     "homepage": "https://github.com/whiteshadowofficial/Jessi-md",
     "author": {
-        "name": "LUA SER OFC"
+        "name": "JESSI DEV OFC"
     },
     "repository": {
         "type": "git",

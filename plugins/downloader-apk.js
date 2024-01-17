@@ -1,6 +1,6 @@
 import cheerio from 'cheerio';
 import fetch from 'node-fetch';
-import FormData from 'form-data';
+import { FormData } from 'formdata-node';
 
 let handler = async (m, { conn, args, usedPrefix, command }) => {
     if (!args[0]) throw `Ex: ${usedPrefix + command} https://play.google.com/store/apps/details?id=com.linecorp.LGGRTHN`;
@@ -35,8 +35,10 @@ async function apkDl(url) {
     try {
         let res = await fetch('https://apk.support/gapi/index.php', {
             method: 'POST',
-            body: form,
-            headers: form.getHeaders(),
+            body: form.toString(), // Convert FormData to string
+            headers: {
+                ...form.headers,
+            },
         });
 
         let $ = cheerio.load(await res.text());

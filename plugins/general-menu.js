@@ -1,4 +1,4 @@
-import { generateWAMessageFromContent } from '@adiwajshing/baileys'
+/*import { generateWAMessageFromContent } from '@adiwajshing/baileys'
 import os from 'os'
 import PhoneNumber from 'awesome-phonenumber'
 
@@ -133,7 +133,7 @@ let ppl = await( await conn.profilePictureUrl(m.sender, 'image').catch(() => 'ht
     
     await m.reply('_Ｌｏａｄｉｎｇ．．．_')
  await conn.relayMessage(m.chat, { reactionMessage: { key: m.key, text: '✅'  }}, { messageId: m.key.id })
-
+*/
 //Payment Menu
  /*await conn.relayMessage(m.chat,  {
     requestPaymentMessage: {
@@ -150,7 +150,7 @@ let ppl = await( await conn.profilePictureUrl(m.sender, 'image').catch(() => 'ht
  //let fkon = { key: { fromMe: false, participant: `${m.sender.split`@`[0]}@s.whatsapp.net`, ...(m.chat ? { remoteJid: '16504228206@s.whatsapp.net' } : {}) }, message: { contactMessage: { displayName: `${name}`, vcard: `BEGIN:VCARD\nVERSION:3.0\nN:;a,;;;\nFN:${name}\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`}}}
 //let fotonya = 'https://telegra.ph/file/d43f196dc3417ca4c5338.jpg'
 // conn.sendMessage(m.chat, { image: { url: fotonya  }, caption: text.trim()}, { quoted: fkon })
-      await conn.sendMessage(m.chat, { text: text.trim(), contextInfo: { externalAdReply: { title: conn.user.name, body: '', thumbnailUrl: ppb, sourceUrl: "https://whatsapp.com/channel/0029Va6BcbxFCCoNNv1U3p02", mediaType: 1, renderLargerThumbnail: true }}})
+/*      await conn.sendMessage(m.chat, { text: text.trim(), contextInfo: { externalAdReply: { title: conn.user.name, body: '', thumbnailUrl: ppb, sourceUrl: "https://whatsapp.com/channel/0029Va6BcbxFCCoNNv1U3p02", mediaType: 1, renderLargerThumbnail: true }}})
   } catch (e) {
     m.reply('An error occurred')
     m.reply(e)
@@ -173,3 +173,4 @@ function clockString(ms) {
   let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
   return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
 }
+*/

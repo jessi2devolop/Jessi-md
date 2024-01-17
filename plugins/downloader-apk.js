@@ -1,4 +1,4 @@
-import cheerio from 'cheerio';
+/*import cheerio from 'cheerio';
 import fetch from 'node-fetch';
 import { FormData } from 'formdata-node';
 
@@ -47,6 +47,47 @@ async function apkDl(url) {
         
         if (!download) throw 'Can\'t find the APK download link!';
         
+        let mimetype = (await fetch(download, { method: 'head' })).headers.get('content-type');
+        return { fileName, mimetype, download };
+    } catch (error) {
+        console.error('Error:', error.message);
+        throw 'Failed to fetch APK information. Please try again later.';
+    }
+}
+*/
+
+import cheerio from 'cheerio';
+import fetch from 'node-fetch';
+
+let handler = async (m, { conn, args, usedPrefix, command }) => {
+    if (!args[0]) throw `Ex: ${usedPrefix + command} https://play.google.com/store/apps/details?id=com.linecorp.LGGRTHN`;
+    let res = await apkDl(args[0]);
+    await m.reply('_In progress, please wait..._');
+    conn.sendMessage(m.chat, { document: { url: res.download }, mimetype: res.mimetype, fileName: res.fileName }, { quoted: m });
+};
+
+handler.help = ['apkdl'];
+handler.tags = ['downloader'];
+handler.command = /^(apkdl)$/i;
+
+export default handler;
+
+async function apkDl(url) {
+    try {
+        let res = await fetch('https://apk.support/apk-downloader', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `url=${url}&t=1&post=1`,
+        });
+
+        let $ = cheerio.load(await res.text());
+        let fileName = $('div.dvContents > ul > li > a').text().trim().split(' ')[0];
+        let download = $('div.dvContents > ul > li > a').attr('href');
+
+        if (!download) throw 'Can\'t find the APK download link!';
+
         let mimetype = (await fetch(download, { method: 'head' })).headers.get('content-type');
         return { fileName, mimetype, download };
     } catch (error) {

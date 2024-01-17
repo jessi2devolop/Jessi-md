@@ -1,4 +1,5 @@
-/*import fetch from 'node-fetch';
+/*
+import fetch from 'node-fetch';
 
 let handler = async (m, { conn, args, usedPrefix, command }) => {
     if (!/https?:\/\/(www\.)?instagram\.com\/(p|reel|tv)/i.test(args[0])) throw m.reply(`Use example ${usedPrefix}${command} link`);
@@ -22,9 +23,8 @@ import fetch from 'node-fetch';
 let handler = async (m, { conn, args, usedPrefix, command }) => {
     if (!/https?:\/\/(www\.)?instagram\.com\/(p|reel|tv)/i.test(args[0])) throw m.reply(`Use example ${usedPrefix}${command} link`);
     await m.reply(`Ｌｏａｄｉｎｇ．．．`);
-    let data;
- try{ data= await (await fetch(`https://vihangayt.me/download/instagram2?url=${args[0]}`)).json();}
- return conn.sendMessage(m.chat, {video : {url : data.result[0] },caption: cap, }, m);
+    let data = await fetch(`https://vihangayt.me/download/instagram2?url=${args[0]}`).json();
+    await conn.sendMessage(m.chat, {video : {url : data.result[0] },caption: cap, }, m);
 }
 
 handler.help = ['ig'].map(v => v + ' <url>')

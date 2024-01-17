@@ -24,7 +24,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     if (!/https?:\/\/(www\.)?instagram\.com\/(p|reel|tv)/i.test(args[0])) throw m.reply(`Use example ${usedPrefix}${command} link`);
     await m.reply(`Ｌｏａｄｉｎｇ．．．`);
     let data = await fetch(`https://vihangayt.me/download/instagram2?url=${args[0]}`).json();
-    await conn.sendMessage(m.chat, {video : {url : data.result[0] },caption: cap, }, m);
+    await conn.sendMessage(m.chat, {video : {url : data.download_link }, }, m);
 }
 
 handler.help = ['ig'].map(v => v + ' <url>')

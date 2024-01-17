@@ -14,12 +14,11 @@ const defaultMenu = {
 ┃❉╭──────────────
 ┃❉│
 ┃❉│ Owner : Jessi2Devolop Team
-┃❉│ User :  @${m.sender.split('@')[0]}
 ┃❉│ Mode : Public
 ┃❉│ Prefix : %_p
 ┃❉│ Server : Amzone AWS
 ┃❉│ Platform : %platform
-┃❉│ RAM: ${format(totalmem() - freemem())}
+┃❉│ RAM: 18.4 GB / 61.79 GB
 ┃❉│ Uptime : %muptime
 ┃❉│ Date : %date
 ┃❉│ Version: v 4.8
@@ -27,7 +26,7 @@ const defaultMenu = {
 ┃❉│
 ┃❉│  ▎▍▌▌▉▏▎▌▉▐▏▌▎
 ┃❉│  ▎▍▌▌▉▏▎▌▉▐▏▌▎
-┃❉│\t _© ${conn.user.name}_ \t
+┃❉│  © Jessi-MD
 ┃❉│ 
 ┃❉╰───────────────
 ╰═════════════════⊷

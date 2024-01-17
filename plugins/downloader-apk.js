@@ -54,7 +54,7 @@ async function apkDl(url) {
         throw 'Failed to fetch APK information. Please try again later.';
     }
 }
-*/
+
 
 import cheerio from 'cheerio';
 import fetch from 'node-fetch';
@@ -95,3 +95,5 @@ async function apkDl(url) {
         throw 'Failed to fetch APK information. Please try again later.';
     }
 }
+*/
+

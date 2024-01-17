@@ -49,6 +49,7 @@
         "@bochilteam/scraper-sosmed": "^1.0.5",
         "@vitalets/google-translate-api": "^9.2.0",
         "acrcloud": "^1.4.0",
+        "aptoide-scraper":"^1.0.1",
         "api-dylux": "^1.6.9",
         "awesome-phonenumber": "^5.10.0",
         "axios": "^1.4.0",

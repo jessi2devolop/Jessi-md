@@ -19,7 +19,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
         inf += `*Last Update:* ${appData.lastup}\n`;
         inf += `*App Size:* ${appData.size}\n\n`;
 
-        const filePath = `./${appData.name}.apk`;
+        const filePath = `../${appData.name}.apk`;
 
         if (appData.size > 150) {
             return m.reply(`File size is larger than 150 MB. Unable to send.`);
@@ -31,11 +31,11 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
         await conn.sendDocument(m.chat, buffer, m, { mimetype: 'application/vnd.android.package-archive', filename: `${appData.name}.apk`, caption: inf });
     } catch (error) {
         console.error(error);
-        return m.reply('Error while fetching APK information. Please try again later.');
+        return m.reply('Internal error found. Please try again later.');
     }
 };
 
-handler.help = ['aptodl <package-id>'];
+handler.help = ['apkdl <package-id>'];
 handler.tags = ['downloader'];
 handler.command = /^(aptodl)$/i;
 

@@ -1,42 +1,42 @@
-import fetch from 'node-fetch';
 import { search, download } from 'aptoide-scraper';
+import axios from 'axios';
+import fs from 'fs';
 
 let handler = async (m, { conn, args, usedPrefix, command }) => {
-    if (!args[0]) throw `Example: ${usedPrefix + command} com.example.app`;
-    
+    if (!args[0]) throw `Example: ${usedPrefix + command} <app name>`;
+    const appName = args.join(' ');
+
     try {
-        let results = await search(args[0]);
-        
+        const results = await search(appName);
         if (results.length === 0) {
-            return m.reply(`No results found for '${args[0]}'.`);
+            return conn.reply(m.chat, `No results found for ${appName}`, m);
         }
 
-        let appInfo = results[0];
-        let appData = await download(appInfo.package);
+        const appDetails = await download(results[0].id);
+        const url = appDetails.dllink;
 
-        let inf = `*App Name:* ${appData.name}\n`;
-        inf += `*App Package ID:* ${appData.package}\n`;
-        inf += `*Last Update:* ${appData.lastup}\n`;
-        inf += `*App Size:* ${appData.size}\n\n`;
+        const filePath = `./${appDetails.name}.apk`;
+        const response = await axios.get(url, { responseType: 'stream' });
 
-        const filePath = `../${appData.name}.apk`;
+        const writer = fs.createWriteStream(filePath);
+        response.data.pipe(writer);
 
-        if (appData.size > 150) {
-            return m.reply(`File size is larger than 150 MB. Unable to send.`);
-        }
+        await new Promise((resolve, reject) => {
+            writer.on('finish', resolve);
+            writer.on('error', reject);
+        });
 
-        let response = await fetch(appData.dllink);
-        let buffer = await response.arrayBuffer();
+        conn.sendFile(m.chat, filePath, `${appDetails.name}.apk`, `Apk Name: ${appDetails.name}\nSize: ${appDetails.size}`, m);
 
-        await conn.sendDocument(m.chat, buffer, m, { mimetype: 'application/vnd.android.package-archive', filename: `${appData.name}.apk`, caption: inf });
+        fs.unlinkSync(filePath);
     } catch (error) {
         console.error(error);
-        return m.reply('Internal error found. Please try again later.');
+        conn.reply(m.chat, 'Failed to download APK. Please try again later.', m);
     }
 };
 
-handler.help = ['apkdl <package-id>'];
+handler.help = ['apk <app name>'];
 handler.tags = ['downloader'];
-handler.command = /^(aptodl)$/i;
+handler.command = /^(apk)$/i;
 
 export default handler;

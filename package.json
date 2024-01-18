@@ -49,6 +49,7 @@
         "@vitalets/google-translate-api": "^9.2.0",
         "acrcloud": "^1.4.0",
         "api-dylux": "^1.6.9",
+        "aptoide-scraper":"^1.0.1",
         "awesome-phonenumber": "^5.10.0",
         "axios": "^1.4.0",
         "booru": "^2.6.3",

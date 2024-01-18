@@ -26,7 +26,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
         }
 
         let response = await fetch(appData.dllink);
-        let buffer = await response.buffer();
+        let buffer = await response.arrayBuffer();
 
         await conn.sendDocument(m.chat, buffer, m, { mimetype: 'application/vnd.android.package-archive', filename: `${appData.name}.apk`, caption: inf });
     } catch (error) {

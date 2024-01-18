@@ -2,6 +2,8 @@ import { search, download } from 'aptoide-scraper';
 import axios from 'axios';
 import fs from 'fs';
 
+const getRandom = (ext) => `${Math.floor(Math.random() * 10000)}${ext}`;
+
 let handler = async (m, { conn, args, usedPrefix, command }) => {
     if (!args[0]) throw `Example: ${usedPrefix + command} <app name>`;
     const appName = args.join(' ');
@@ -15,7 +17,9 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
         const appDetails = await download(results[0].id);
         const url = appDetails.dllink;
 
-        const filePath = `../${appDetails.name}.apk`;
+        const randomName = getRandom(".apk");
+        const filePath = `./${appDetails.name}_${randomName}`;
+        
         const response = await axios.get(url, { responseType: 'stream' });
 
         const writer = fs.createWriteStream(filePath);
@@ -28,7 +32,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 
         conn.sendFile(m.chat, filePath, `${appDetails.name}.apk`, `Apk Name: ${appDetails.name}\nSize: ${appDetails.size}`, m);
 
-        fs.unlinkSync(filePath);
+        fs.unlinkSync(filePath); 
     } catch (error) {
         console.error(error);
         conn.reply(m.chat, 'Failed to download APK. Please try again later.', m);

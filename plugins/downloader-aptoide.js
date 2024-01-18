@@ -18,7 +18,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
         const url = appDetails.dllink;
 
         const randomName = getRandom(".apk");
-        const filePath = `./${appDetails.name}_${randomName}`;
+        const filePath = `./${appDetails.package}_${randomName}`;
         
         const response = await axios.get(url, { responseType: 'stream' });
 
@@ -30,7 +30,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
             writer.on('error', reject);
         });
 
-        conn.sendFile(m.chat, filePath, `${appDetails.name}.apk`, `Apk Name: ${appDetails.name}\nSize: ${appDetails.size}`, m);
+        conn.sendFile(m.chat, filePath, `${appDetails.package}.apk`, `Apk Name: ${appDetails.name}\nSize: ${appDetails.size}`, m);
 
         fs.unlinkSync(filePath); 
     } catch (error) {

@@ -15,7 +15,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
         const appDetails = await download(results[0].id);
         const url = appDetails.dllink;
 
-        const filePath = `./${appDetails.name}.apk`;
+        const filePath = `../${appDetails.name}.apk`;
         const response = await axios.get(url, { responseType: 'stream' });
 
         const writer = fs.createWriteStream(filePath);

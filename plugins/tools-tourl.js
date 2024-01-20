@@ -4,6 +4,13 @@ import fetch from 'node-fetch';
 
 import uploadImage from '../lib/uploadImage.js';
 
+
+async function shortUrl(url) {
+  let res = await fetch(`https://tinyurl.com/api-create.php?url=${url}`);
+  return await res.text();
+}
+
+
 let handler = async (m) => {
   let q = m.quoted ? m.quoted : m;
   let mime = (q.msg || q).mimetype || q.mediaType || '';
@@ -37,8 +44,3 @@ handler.tags = ['tools'];
 handler.command = /^(upload|tourl)$/i;
 
 export default handler;
-
-async function shortUrl(url) {
-  let res = await fetch(`https://tinyurl.com/api-create.php?url=${url}`);
-  return await res.text();
-}

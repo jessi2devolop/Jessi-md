@@ -39,7 +39,7 @@ let handler = async (m, { conn, args }) => {
     }
 };
 
-handler.help = ['tiktokhd'];
+handler.help = ['tiktokhd <url>'];
 handler.tags = ['downloader'];
 handler.command = /^(tiktokhd)$/i;
 

@@ -13,20 +13,17 @@ const defaultMenu = {
 ╭═══〘 Jessi MD - Bot 〙═══⊷❍
 ┃❉╭──────────────
 ┃❉│
-┃❉│ Owner : Jessi2Devolop Team
-┃❉│ Mode : Public
-┃❉│ Prefix : %_p
-┃❉│ Server : Amzone AWS
-┃❉│ Platform : %platform
-┃❉│ RAM: 18.4 GB / 61.79 GB
-┃❉│ Uptime : %muptime
-┃❉│ Date : %date
-┃❉│ Version: v 4.8
-┃❉│
+┃❉│ > Owner : Jessi2Devolop Team
+┃❉│ > Server : Amzone AWS
+┃❉│ > Platform : %platform
+┃❉│ > RAM: 18.4 GB / 61.79 GB
+┃❉│ > Uptime : %muptime
+┃❉│ > Date : %date
+┃❉│ > Version: v 4.8
 ┃❉│
 ┃❉│  ▎▍▌▌▉▏▎▌▉▐▏▌▎
 ┃❉│  ▎▍▌▌▉▏▎▌▉▐▏▌▎
-┃❉│  © Jessi-MD
+┃❉│  © Jessi-MD 2024
 ┃❉│ 
 ┃❉╰───────────────
 ╰═════════════════⊷
@@ -38,7 +35,7 @@ const defaultMenu = {
 ┃   %category  
 ╰───────────╯
     `.trimStart(),
-  body: `┃ \t ❉ _%cmd%islimit%isPremium_ `,
+  body: `│ \t ❉ _%cmd%islimit%isPremium_ `,
   footer: '│',
   after: `╰───────────`,
 }

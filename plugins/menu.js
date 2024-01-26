@@ -11,21 +11,21 @@ let tags = {}
 const defaultMenu = {
   before: `
 ╭═══〘 Jessi MD - Bot 〙═══⊷❍
-┃❉╭──────────────
-┃❉│
-┃❉│ Owner : Jessi2Devolop Team
-┃❉│ Server : Amzone AWS
-┃❉│ Platform : %platform
-┃❉│ RAM: 18.4 GB / 61.79 GB
-┃❉│ Uptime : %muptime
-┃❉│ Date : %date
-┃❉│ Version: v 4.8
-┃❉│
-┃❉│  ▎▍▌▌▉▏▎▌▉▐▏▌▎
-┃❉│  ▎▍▌▌▉▏▎▌▉▐▏▌▎
-┃❉│  © Jessi-MD 2024
-┃❉│ 
-┃❉╰───────────────
+> ❉╭──────────────
+> ❉│
+> ❉│ Owner : Jessi2Devolop Team
+> ❉│ Server : Amzone AWS
+> ❉│ Platform : %platform
+> ❉│ RAM: 18.4 GB / 61.79 GB
+> ❉│ Uptime : %muptime
+> ❉│ Date : %date
+> ❉│ Version: v 4.8
+> ❉│
+> ❉│  ▎▍▌▌▉▏▎▌▉▐▏▌▎
+> ❉│  ▎▍▌▌▉▏▎▌▉▐▏▌▎
+> ❉│  © Jessi-MD 2024
+> ❉│ 
+> ❉╰───────────────
 ╰═════════════════⊷
 
 %readmore

@@ -73,6 +73,7 @@
         "link-preview-js": "^3.0.4",
         "lodash": "^4.17.21",
         "lowdb": "^5.0.5",
+        "megajs": "^1.1.7",
         "mime-types": "^2.1.35",
         "moment-timezone": "^0.5.43",
         "mongoose": "^7.4.1",

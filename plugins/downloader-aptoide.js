@@ -8,11 +8,13 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     const appName = args.join(' ');
 
     try {
+        await m.react('🔎');
         const results = await search(appName);
         if (results.length === 0) {
             return conn.reply(m.chat, `No results found for ${appName}`, m);
         }
 
+        await m.react('📥');
         const appDetails = await download(results[0].id);
         const url = appDetails.dllink;
 
@@ -28,12 +30,15 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
             writer.on('error', reject);
         });
 
-        conn.sendFile(m.chat, filePath, `${appDetails.package}.apk`, `Apk Name: ${appDetails.name}\nSize: ${appDetails.size}\nLast Update: ${appDetails.lastup}`, m);
+        await m.react('📤');
+        conn.sendFile(m.chat, filePath, `${appDetails.package}.apk`, `Apk Name: ${appDetails.name}\nSize: ${appDetails.size}`, m);
+      m.react('✅');
 
     } catch (error) {
         console.error(error);
         fs.unlinkSync(filePath); 
         conn.reply(m.chat, 'Failed to download APK. Please try again later.', m); 
+      m.react('❌');
       
     }
 };

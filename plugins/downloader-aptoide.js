@@ -31,7 +31,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
         });
 
         await m.react('📤');
-        conn.sendFile(m.chat, filePath, `${appDetails.package}.apk`, `Apk Name: ${appDetails.name}\nSize: ${appDetails.size}`, m);
+        conn.sendFile(m.chat, filePath, `${appDetails.package}.apk`, `Apk Name: ${appDetails.name}\nSize: ${appDetails.size}\nLast Update: ${appDetails.lastup`, m);
       m.react('✅');
 
     } catch (error) {

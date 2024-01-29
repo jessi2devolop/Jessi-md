@@ -19,7 +19,16 @@ ${link}
 
 > 𝗦𝗵𝗼𝗿𝘁 : ${await shortUrl(link)}`
 
-conn.reply(m.chat, caption, m)
+conn.reply(m.chat, caption, m, { contextInfo: {
+          externalAdReply :{
+    mediaUrl: pp,
+    mediaType: 2,
+    title: await shortUrl(link),
+    body: botdate,
+    thumbnail: await(await fetch(link)).buffer(),
+    sourceUrl: link
+     }}
+  })
 }
 handler.help = ['tourl']
 handler.tags = ['tools']

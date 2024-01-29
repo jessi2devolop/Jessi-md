@@ -1,5 +1,5 @@
 // downloader ig story by jessi2decolop team
-// this plugin powerd by api.lolhuman.xyz
+// api.lolhuman.xyz
 
 import fetch from 'node-fetch';
 
@@ -33,8 +33,8 @@ let handler = async (m, { conn, usedPrefix, command, args }) => {
                 const mediaResponse = await fetch(mediaUrl);
                 const buffer = await mediaResponse.arrayBuffer();
 
+                m.react('✅');
                 await conn.sendFile(m.chat, Buffer.from(buffer), fileName, `Instagram story of ${username} 🫢`, m);
-                return m.react('😏');
             }
         } else {
             throw new Error('Error in response data');

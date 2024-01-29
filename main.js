@@ -143,6 +143,7 @@ conn.isInit = false
 
 conn.logger.info(`W A I T I N G\n`);
 
+/*
 if (!opts['test']) {
     (await import('./server.js')).default(PORT)
     if (global.db) {
@@ -153,7 +154,7 @@ if (!opts['test']) {
         }, 30 * 1000);
     }
 }
-
+*/
 function clearTmp() {
     const tmp = [tmpdir(), join(__dirname, './tmp')];
     const filename = [];

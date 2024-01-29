@@ -1,3 +1,4 @@
+/*
 import fetch from "node-fetch";
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
@@ -28,3 +29,4 @@ handler.tags = ['ai'];
 handler.command = /^(aiimg)$/i;
 
 export default handler;
+*/

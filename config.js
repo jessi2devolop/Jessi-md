@@ -62,7 +62,7 @@ global.APIKeys = { // APIKey Here
 ]
 
 // Sticker WM
-global.packname = `「 Cʀᴇᴀᴛᴇᴅ Bʏ ᴍʀ.ᴡʜɪᴛᴇ ꜱʜᴀᴅᴏᴡ 」`
+global.packname = `「 sticker pack° jessDev 」`
 global.botdate = `⫹⫺ Day`
 global.bottime = `ᴛɪᴍᴇ:`
 global.author = ''
@@ -85,7 +85,7 @@ global.pwait = '⏱️'
 global.qwait = '😩'
 global.pwait = '⏱️'
 global.rwait = '⏱️'
-global.wait = 'Download please wait'
+global.wait = 'Please wait a moment'
 global.eror = 'Error can not find'
 
 global.rpg = {

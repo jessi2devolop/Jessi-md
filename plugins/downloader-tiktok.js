@@ -14,7 +14,7 @@ previewType: 0, thumbnail: thumb2, jpegThumbnail: thumb,
 sourceUrl: 'https://github.com/whiteshadowofficial' }}})
 try {
 let p = await fg.tiktok(args[0]) 
-conn.sendFile(m.chat, p.play, 'tiktok.mp4', txt, m)
+conn.sendFile(m.chat, p.play, 'tiktok.mp4', p.nickname, m)
 } catch {  	
 try { 
 const { author: { nickname }, video, description } = await tiktokdl(args[0])

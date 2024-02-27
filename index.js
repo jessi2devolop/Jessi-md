@@ -1,3 +1,13 @@
+/*
+Copyright (C) 2021. Licensed under the GPL-3.0 License; You may not use this file except in compliance with the License. It is supplied in the hope that it may be useful.
+
+@project_name : Jessi-MD
+@author : Jessi2Devolop Team https://github.com/jessi2devolop
+@description : Jessi-MD, A Fully AI powerd multi-functional whatsapp bot.
+@version : 4.8
+*/
+
+
 console.log('Starting Bot...')
 
 import yargs from 'yargs'; import cfonts from 'cfonts'; import { fileURLToPath } from 'url'; import { join, dirname } from 'path'; import { createRequire } from 'module'; import { createInterface } from 'readline'; import { setupMaster, fork } from 'cluster'; import { watchFile, unwatchFile } from 'fs';

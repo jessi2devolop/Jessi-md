@@ -6,3 +6,4 @@ Copyright (C) 2021.
  * @author : Jessi2Devolop Team <https://github.com/jessi2devolop>
  * @description : Jessi-MD multi-functional whatsapp bot using baileys library.
  * @version : 4.8
+ * @language : javascript

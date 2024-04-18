@@ -20,7 +20,7 @@ let handler = async (m, { conn, args }) => {
             let data = await response.json();
 
             if (data.status === true && data.result && data.result.video_HD) {
-                let videoBuffer = await fetch(data.data.video_HD).then(res => res.buffer());
+                let videoBuffer = await fetch(data.result.video_HD).then(res => res.buffer());
 
                 
                 let caption = `*Author:* [${data.result.author_name}](${data.data.username})\n*Description:* ${data.result.description}`;

@@ -1,3 +1,4 @@
+/*
 import fg from 'api-dylux' 
 import { tiktokdl } from '@bochilteam/scraper'
 
@@ -24,6 +25,44 @@ conn.sendFile(m.chat, url, 'fb.mp4', ``, m)
 } catch {
 m.reply('*☓ An unexpected error occurred*')
 }}}
+*/
+
+import fetch from 'node-fetch';
+
+const handler = async (m, { conn, args, usedPrefix, command }) => {
+  if (!args[0]) {
+    throw `Please send the TikTok video link.\n\nExample: ${usedPrefix}${command} tiktok url`;
+  }
+
+  const urlRegex = /^(?:https?:\/\/)?(?:www\.)?(?:vm\.tiktok\.com|tiktok\.com)\/([a-zA-Z0-9_-]+)\/?$/i;
+  if (!urlRegex.test(args[0])) {
+    throw 'Please provide a valid TikTok video URL.';
+  }
+
+  await m.react('⏳') 
+  try {
+    const response = await fetch(`https://aemt.me/download/tikdl?url=${encodeURIComponent(args[0])}`);
+    const data = await response.json();
+
+    if (data.status && data.result && data.result.url && data.result.url.wm) {
+      const downloadLink = data.result.url.nowm;
+      const nickname = data.result.author_info?.nickname || 'Unknown';
+      const title = data.result.info_video?.title || 'Untitled TikTok Video';
+
+      const caption = `${nickname}\n${title}`;
+
+      await conn.sendFile(m.chat, downloadLink, 'tiktok_video.mp4', caption, m);
+      await m.react('✅')
+    } else {
+      throw new Error('Error in url response.');
+      await m.react('❎') 
+    }
+  } catch (error) {
+    console.error(error);
+    await conn.reply(m.chat, 'Failed to fetch video data. Please try again later.', m);
+    await m.react('❎') 
+  }
+};
 
 handler.help = ['tiktok'].map((v) => v + ' <url>');
 handler.tags = ['downloader'];

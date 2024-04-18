@@ -13,17 +13,17 @@ let handler = async (m, { conn, args }) => {
             throw 'Please enter a valid TikTok link.';
         }
 
-        let apiUrl = `https://vihangayt.me/download/tiktok?url=${encodeURIComponent(tiktokUrl)}`;
+        let apiUrl = `https://api-rest-jessi2devolop.koyeb.app/api/dowloader/tikok?url=${encodeURIComponent(tiktokUrl)}`;
 
         let response = await fetch(apiUrl);
         if (response.ok) {
             let data = await response.json();
 
-            if (data.status === true && data.data && data.data.play_url) {
-                let videoBuffer = await fetch(data.data.play_url).then(res => res.buffer());
+            if (data.status === true && data.result && data.result.video_HD) {
+                let videoBuffer = await fetch(data.data.video_HD).then(res => res.buffer());
 
                 
-                let caption = `*Author:* [${data.data.author_name}](${data.data.author})\n*Description:* ${data.data.desc}`;
+                let caption = `*Author:* [${data.result.author_name}](${data.data.username})\n*Description:* ${data.result.description}`;
 
                 
                 conn.sendFile(m.chat, videoBuffer, 'video.mp4', caption, m);

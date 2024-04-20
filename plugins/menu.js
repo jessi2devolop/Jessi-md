@@ -18,7 +18,7 @@ const defaultMenu = {
 > ❉│ Platform : %platform
 > ❉│ Uptime : %muptime
 > ❉│ Date : %date
-> ❉│ Version: v 4.8
+> ❉│ Version: v 4.9
 > ❉│
 > ❉│  ▎▍▌▌▉▏▎▌▉▐▏▌▎
 > ❉│  ▎▍▌▌▉▏▎▌▉▐▏▌▎

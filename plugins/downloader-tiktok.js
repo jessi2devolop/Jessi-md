@@ -34,12 +34,13 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
     throw `Please send the TikTok video link.\n\nExample: ${usedPrefix}${command} tiktok url`;
   }
 
-  const urlRegex = /^(?:https?:\/\/)?(?:www\.)?(?:vm\.tiktok\.com|tiktok\.com)\/([a-zA-Z0-9_-]+)\/?$/i;
+  
+  const urlRegex = /^(?:https?:\/\/)?(?:www\.)?(?:vm\.tiktok\.com|tiktok\.com|vt\.tiktok\.com)\/([a-zA-Z0-9_-]+)\/?$/i;
   if (!urlRegex.test(args[0])) {
     throw 'Please provide a valid TikTok video URL.';
   }
 
-  await m.react('⏳') 
+  await m.react('⏳');
   try {
     const response = await fetch(`https://aemt.me/download/tikdl?url=${encodeURIComponent(args[0])}`);
     const data = await response.json();
@@ -52,15 +53,15 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
       const caption = `${nickname}\n${title}`;
 
       await conn.sendFile(m.chat, downloadLink, 'tiktok_video.mp4', caption, m);
-      await m.react('✅')
+      await m.react('✅');
     } else {
       throw new Error('Error in url response.');
-      await m.react('❎') 
+      await m.react('❎');
     }
   } catch (error) {
     console.error(error);
     await conn.reply(m.chat, 'Failed to fetch video data. Please try again later.', m);
-    await m.react('❎') 
+    await m.react('❎');
   }
 };
 
@@ -68,4 +69,4 @@ handler.help = ['tiktok'].map((v) => v + ' <url>');
 handler.tags = ['downloader'];
 handler.command = /^t(t|iktok(d(own(load(er)?)?|l))?|td(own(load(er)?)?|l))$/i;
 
-export default handler
+export default handler; 

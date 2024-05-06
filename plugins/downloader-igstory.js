@@ -54,7 +54,7 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
     throw `Please send the Instagram story link.\n\nExample: ${usedPrefix}${command} insta_story_url`;
   }
 
-  const urlRegex = /^(?:https?:\/\/)?(?:www\.)?(?:instagram\.com)\/stories\/([a-zA-Z0-9_\-]+)\/([a-zA-Z0-9_\-]+)\/([0-9]+)\/?/i;
+  const urlRegex = /^(?:https?:\/\/)?(?:www\.)?(?:instagram\.com)\/stories\/([a-zA-Z0-9_\-]+)\/([0-9]+)\/?/i;
   if (!urlRegex.test(args[0])) {
     throw 'Please provide a valid Instagram story URL.';
   }
